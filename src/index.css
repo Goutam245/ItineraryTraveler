@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Adventure Colors */
+    --coral: 352 77% 64%;
+    --coral-light: 352 77% 74%;
+    --coral-dark: 352 77% 54%;
+    --teal: 168 85% 32%;
+    --teal-light: 168 85% 42%;
+    --amber: 38 92% 50%;
+    --amber-light: 38 92% 60%;
+    
+    /* Secondary Elegant Colors */
+    --navy: 217 33% 17%;
+    --navy-light: 217 33% 27%;
+    --cream: 40 50% 98%;
+    --cream-dark: 40 25% 94%;
+    --sage: 162 26% 72%;
+    --sage-light: 162 26% 82%;
+    
+    /* Accent Luxury Colors */
+    --rose-gold: 354 47% 81%;
+    --deep-purple: 263 84% 58%;
+    --deep-purple-light: 263 84% 68%;
+    --sunset: 27 96% 61%;
+    --sunset-light: 27 96% 71%;
+    --blue: 217 91% 60%;
+    --blue-light: 217 91% 70%;
+    
+    /* Base Design System */
+    --background: 40 50% 98%;
+    --foreground: 217 33% 17%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 217 33% 17%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 33% 17%;
+    
+    --primary: 352 77% 64%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 168 85% 32%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 40 25% 94%;
+    --muted-foreground: 217 20% 45%;
+    
+    --accent: 38 92% 50%;
+    --accent-foreground: 217 33% 17%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 217 20% 88%;
+    --input: 217 20% 88%;
+    --ring: 352 77% 64%;
+    
+    --radius: 1rem;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, transparent 0%, hsl(217 33% 17% / 0.7) 100%);
+    --gradient-coral: linear-gradient(135deg, hsl(352 77% 64%) 0%, hsl(352 77% 74%) 100%);
+    --gradient-teal: linear-gradient(135deg, hsl(168 85% 32%) 0%, hsl(168 85% 42%) 100%);
+    --gradient-purple: linear-gradient(135deg, hsl(263 84% 58%) 0%, hsl(263 84% 68%) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 91% 70%) 100%);
+    --gradient-orange: linear-gradient(135deg, hsl(27 96% 61%) 0%, hsl(27 96% 71%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(217 33% 17% / 0.08);
+    --shadow-md: 0 4px 16px -4px hsl(217 33% 17% / 0.12);
+    --shadow-lg: 0 8px 32px -8px hsl(217 33% 17% / 0.16);
+    --shadow-xl: 0 16px 48px -12px hsl(217 33% 17% / 0.2);
+    --shadow-glow-coral: 0 8px 32px -8px hsl(352 77% 64% / 0.35);
+    --shadow-glow-teal: 0 8px 32px -8px hsl(168 85% 32% / 0.35);
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 217 33% 10%;
+    --foreground: 40 50% 98%;
+    
+    --card: 217 33% 14%;
+    --card-foreground: 40 50% 98%;
+    
+    --popover: 217 33% 14%;
+    --popover-foreground: 40 50% 98%;
+    
+    --muted: 217 33% 20%;
+    --muted-foreground: 217 20% 65%;
+    
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    
+    --sidebar-background: 217 33% 10%;
+    --sidebar-foreground: 40 50% 98%;
+    --sidebar-primary: 352 77% 64%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 20%;
+    --sidebar-accent-foreground: 40 50% 98%;
+    --sidebar-border: 217 33% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-navy/80 backdrop-blur-xl border border-white/10;
+  }
+  
+  /* Text Gradients */
+  .text-gradient-coral {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-coral);
+  }
+  
+  .text-gradient-teal {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-teal);
+  }
+  
+  /* Card Hover Effects */
+  .card-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .card-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Animation Utilities */
+  .animate-ken-burns {
+    animation: ken-burns 20s ease-in-out infinite alternate;
+  }
+  
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background: linear-gradient(90deg, transparent 0%, hsl(var(--muted)) 50%, transparent 100%);
+    background-size: 200% 100%;
+  }
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate(-2%, -2%);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
